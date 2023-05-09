@@ -12,6 +12,15 @@ async function getaAllGenre():Promise<GenreModel[]>{
     return genre
 }
 
+
+async function getaAllBooks():Promise<BookModel[]>{
+    const sql = `SELECT * FROM booksstorproducts `
+    const books = await dal.execute(sql)
+    return books
+}
+
+
+
 async function addBook(bookstorproduct:BookModel):Promise<BookModel>{
     const sql = `INSERT INTO booksstorproducts
                 VALUES(DEFAULT,
@@ -31,5 +40,6 @@ async function addBook(bookstorproduct:BookModel):Promise<BookModel>{
 
 export default {
     getaAllGenre,
+    getaAllBooks,
     addBook
 }

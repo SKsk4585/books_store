@@ -18,6 +18,19 @@ router.get("/genre", async(request:Request, response:Response,next:NextFunction)
     }
 })
 
+//get all books
+router.get("/get-all-books", async(request:Request, response:Response,next:NextFunction)=>{
+    try {
+        const books = await booksLogic.getaAllBooks()
+        response.json(books)
+        
+    } 
+    catch (error) {
+        next(error)
+        
+    }
+})
+
 //add book
 router.post("/books", async(request:Request,response:Response,next:NextFunction)=>{
     try {
