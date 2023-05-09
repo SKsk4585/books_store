@@ -19,7 +19,7 @@ router.get("/genre", async(request:Request, response:Response,next:NextFunction)
 })
 
 //add book
-router.post("/book", async(request:Request,response:Response,next:NextFunction)=>{
+router.post("/books", async(request:Request,response:Response,next:NextFunction)=>{
     try {
        const bookstorproduct = new BookModel(request.body)
        const addedBook = await booksLogic.addBook(bookstorproduct)

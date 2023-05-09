@@ -1,6 +1,7 @@
 import axios from "axios"
 import GenreModel from "../models/GenreModel"
 import appConfig from "../utils/AppConfig"
+import BookModel from "../models/BookModel"
 
 
 
@@ -12,23 +13,13 @@ async function getaAllGenre():Promise<GenreModel[]>{
     return genres
 }
 
-// async function addBook(bookstorproduct:BookModel):Promise<BookModel>{
-//     const sql = `INERT INTO bookstorproduct
-//                 VALUES (DEFAULT,
-//                         ${bookstorproduct.genreId}
-//                         ${bookstorproduct.bookName}
-//                         ${bookstorproduct.summary}
-//                         ${bookstorproduct.price}
-//                         ${bookstorproduct.stock}                        ${bookstorproduct.genreId}
-//                         )`
-//     const info:OkPacket = await dal.execute(sql)
-//     bookstorproduct.bookId = info.insertId
-//     return bookstorproduct
-// }
+async function addBook(book:BookModel):Promise<void>{
+  await axios.post<BookModel>(appConfig.addBooks,book)
+}
 
 
 
 export default {
     getaAllGenre,
-    // addBook
+    addBook
 }

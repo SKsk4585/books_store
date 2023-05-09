@@ -3,7 +3,7 @@ class BookModel{
     public genreId:number
     public bookName:string
     public summary:string
-    public price:number
+    public price:string
     public stock:number
 
  }
