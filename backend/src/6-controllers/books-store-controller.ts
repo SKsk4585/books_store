@@ -45,6 +45,20 @@ router.post("/books", async(request:Request,response:Response,next:NextFunction)
 })
 
 
+//delete
+router.delete("/delete-books/:bookId", async(request:Request,response:Response,next:NextFunction)=>{
+    try {
+       const bookId = +request.params.bookId
+       await booksLogic.deleteBook(bookId)
+       response.sendStatus(204)
+    } 
+    catch (error: any) {
+        next(error)
+        
+    }
+})
+
+
 
 
 export default router

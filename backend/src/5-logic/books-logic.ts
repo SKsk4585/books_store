@@ -2,6 +2,7 @@ import { OkPacket } from "mysql";
 import dal from "../2-utils/dal";
 import BookModel from "../4-models/book-model";
 import GenreModel from "../4-models/genre-model";
+import { resonceNotFoundErrorModel } from "../4-models/error-model";
 
 
 
@@ -37,9 +38,19 @@ async function addBook(bookstorproduct:BookModel):Promise<BookModel>{
 }
 
 
+async function deleteBook(bookId: number):Promise<void>{
+    const sql = `DELETE FROM booksstorproducts
+                 WHERE bookId = ${bookId}`;
+                                
+    // const info:OkPacket = await dal.execute(sql)
+    // if(info.affectedRows === 0) throw new resonceNotFoundErrorModel(bookId)
+}
+
+
 
 export default {
     getaAllGenre,
     getaAllBooks,
-    addBook
+    addBook,
+    deleteBook
 }
