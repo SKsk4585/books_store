@@ -3,11 +3,13 @@ import routeNotFound from "./3-middelware/route-not-founn";
 import catchAll from "./3-middelware/catch-all";
 import appConfig from "./2-utils/appconfig";
 import booksStoreController from "./6-controllers/books-store-controller"
+import cors from "cors";
 
 
 
 
 const server = express()
+server.use(cors())
 server.use(express.json())
 server.use("/api",booksStoreController)
 server.use("*",routeNotFound)
