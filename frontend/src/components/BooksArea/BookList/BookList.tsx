@@ -20,15 +20,13 @@ function BookList(): JSX.Element {
 
     return (
         <div className="BookList">
-            {genres && genres.map(g=><div>{g.jenreId}{g.genreName}</div>)}
-            {/* {genres && 
-            <>
-          {  genres.map((g)=>{
-                <div key={genres.}>{genres.genreName}</div>
-            })}
-            </>} */}
+            {/* {genres && genres.map(g=><div>{g.jenreId}{g.genreName}</div>)} */}
 
-			
+            <select defaultValue="" >
+                    <option disabled value={""}>select a genre name </option>
+
+                    {genres && genres.map(g=> <option key={g.jenreId} value={g.jenreId}>{g.genreName}</option> )}
+            </select>			
         </div>
     );
 }
